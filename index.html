@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Javasscript</title>
+</head>
+<body>
+    <h1>
+        increment and decrement in js
+    </h1>
+    <div class="box">
+        <label for="quantity">Quatity :</label>
+        <button class="dec button">-</button>
+        <input type="text" name="qty" id="1" value="1" class="input-filed" disabled>
+        <button class="inc button">+</button>
+    </div>
+
+    <script>
+        var incrementButton = document.getElementsByClassName('inc')
+        var decrementButton = document.getElementsByClassName('dec')
+        // console.log(incrementButton)
+        for(var i = 0 ; i < incrementButton.length; i++){
+            var button = incrementButton[i];
+            button.addEventListener('click',function(event){
+                var buttonClicked = event.target
+                // console.log(buttonClicked)
+                var input = buttonClicked.parentElement.children[2];
+                // console.log(input)
+                var inputValue = input.value
+
+                var newValue = parseInt(inputValue)+1
+                input.value = newValue
+            })
+        }
+
+        for(var i = 0 ; i < decrementButton.length; i++){
+            var button = decrementButton[i];
+            button.addEventListener('click',function(event){
+                var buttonClicked = event.target
+                // console.log(buttonClicked)
+                var input = buttonClicked.parentElement.children[2];
+                // console.log(input)
+                var inputValue = input.value
+
+                var newValue = parseInt(inputValue)-1
+                if(newValue >= 1){
+                    input.value = newValue
+
+                }
+                else{
+                    input.value = 1
+                    alert('quantity cannot be zero')
+                }
+            })
+        }
+        
+    </script>
+</body>
+</html>
